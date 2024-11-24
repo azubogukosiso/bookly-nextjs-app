@@ -1,11 +1,9 @@
 import toast from 'react-hot-toast';
 
-export const changeUserDetails = async (e, userDetail, detailType, user_id, setLoadingState, userProfileRef, handleSessionEdit) => {
+export const changeUserDetails = async (e, userDetail, detailType, user_id, setLoadingState, handleSessionEdit) => {
     e.preventDefault();
 
     setLoadingState(true);
-
-    if (userProfileRef.current) userProfileRef.current.focus();
 
     if (!userDetail) {
         toast.error("Fill the required fields!", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
@@ -35,7 +33,7 @@ export const changeUserDetails = async (e, userDetail, detailType, user_id, setL
             setLoadingState(false);
             toast.success(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
 
-            handleSessionEdit();
+            handleSessionEdit(); // UPDATES THE SESSION OBJECT TO RENDER THE NEWLY EDITED PROFILE DETAILS
         } else {
             setLoadingState(false);
             toast.error(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
