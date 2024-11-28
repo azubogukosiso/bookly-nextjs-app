@@ -5,15 +5,26 @@ mongoose.Promise = global.Promise;
 
 const orderSchema = new Schema(
     {
-        bookId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Order'
-        },
-        userId: {
+        customerId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
-        quantity: Number,
+        email: String,
+        totalAmount: Number,
+        firstName: String,
+        lastName: String,
+        orderedBooks: {
+            type: Array,
+            default: null
+        },
+        dateOrdered: {
+            type: Date,
+            default: Date.now()
+        },
+        dateDelivered: {
+            type: Date,
+            default: null
+        },
         isConfirmed: {
             type: Boolean,
             default: false,

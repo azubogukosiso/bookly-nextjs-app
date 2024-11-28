@@ -36,7 +36,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
 
                             {/* VIEW MORE DETAILS BTN */}
                             <Link href={`/books/details/${hyphenateTitle(title)}?id=${id}`}
-                                className="p-4 ml-2 text-center text-white transition-all bg-blue-600 rounded-lg active:scale-90">
+                                className="p-4 ml-2 text-center text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="More Details">
                                 <svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8 4H21V6H8V4ZM4.5 6.5C3.67157 6.5 3 5.82843 3 5C3 4.17157 3.67157 3.5 4.5 3.5C5.32843 3.5 6 4.17157 6 5C6 5.82843 5.32843 6.5 4.5 6.5ZM4.5 13.5C3.67157 13.5 3 12.8284 3 12C3 11.1716 3.67157 10.5 4.5 10.5C5.32843 10.5 6 11.1716 6 12C6 12.8284 5.32843 13.5 4.5 13.5ZM4.5 20.4C3.67157 20.4 3 19.7284 3 18.9C3 18.0716 3.67157 17.4 4.5 17.4C5.32843 17.4 6 18.0716 6 18.9C6 19.7284 5.32843 20.4 4.5 20.4ZM8 11H21V13H8V11ZM8 18H21V20H8V18Z" /></svg>
                             </Link>
 
@@ -44,12 +44,12 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                                 session?.user.role === "customer" &&
                                 <>
                                     {/* ADD TO CART BTN */}
-                                    <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90" onClick={() => addToCart(bookDetails, booksInCart, dispatch)}><svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.00488 16V4H2.00488V2H5.00488C5.55717 2 6.00488 2.44772 6.00488 3V15H18.4433L20.4433 7H8.00488V5H21.7241C22.2764 5 22.7241 5.44772 22.7241 6C22.7241 6.08176 22.7141 6.16322 22.6942 6.24254L20.1942 16.2425C20.083 16.6877 19.683 17 19.2241 17H5.00488C4.4526 17 4.00488 16.5523 4.00488 16ZM6.00488 23C4.90031 23 4.00488 22.1046 4.00488 21C4.00488 19.8954 4.90031 19 6.00488 19C7.10945 19 8.00488 19.8954 8.00488 21C8.00488 22.1046 7.10945 23 6.00488 23ZM18.0049 23C16.9003 23 16.0049 22.1046 16.0049 21C16.0049 19.8954 16.9003 19 18.0049 19C19.1095 19 20.0049 19.8954 20.0049 21C20.0049 22.1046 19.1095 23 18.0049 23Z" /></svg></button>
+                                    <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Add to Cart" onClick={() => addToCart(bookDetails, booksInCart, dispatch)}><svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.00488 16V4H2.00488V2H5.00488C5.55717 2 6.00488 2.44772 6.00488 3V15H18.4433L20.4433 7H8.00488V5H21.7241C22.2764 5 22.7241 5.44772 22.7241 6C22.7241 6.08176 22.7141 6.16322 22.6942 6.24254L20.1942 16.2425C20.083 16.6877 19.683 17 19.2241 17H5.00488C4.4526 17 4.00488 16.5523 4.00488 16ZM6.00488 23C4.90031 23 4.00488 22.1046 4.00488 21C4.00488 19.8954 4.90031 19 6.00488 19C7.10945 19 8.00488 19.8954 8.00488 21C8.00488 22.1046 7.10945 23 6.00488 23ZM18.0049 23C16.9003 23 16.0049 22.1046 16.0049 21C16.0049 19.8954 16.9003 19 18.0049 19C19.1095 19 20.0049 19.8954 20.0049 21C20.0049 22.1046 19.1095 23 18.0049 23Z" /></svg></button>
 
                                     {/* ADD TO FAVOURITES BTN */}
                                     {
                                         isFavourite ?
-                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90" onClick={() => removeFromFavourites(bookDetails, session.user.id, setIsLoadingRemoveFromFavourites)}>
+                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Remove from Favourites" onClick={() => removeFromFavourites(bookDetails, session.user.id, setIsLoadingRemoveFromFavourites)}>
                                                 {
                                                     isLoadingRemoveFromFavourites ?
                                                         <svg aria-hidden="true" width="23" height="23" className="text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                                                 }
                                             </button>
                                             :
-                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90" onClick={() => addToFavourites(bookDetails, session.user.id, setIsLoadingAddToFavourites)}>
+                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Add to Favourites" onClick={() => addToFavourites(bookDetails, session.user.id, setIsLoadingAddToFavourites)}>
                                                 {
                                                     isLoadingAddToFavourites ?
                                                         <svg aria-hidden="true" width="23" height="23" className="text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,12 +81,12 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                                 <>
                                     {/* EDIT BOOK DETAILS BTN */}
                                     <Link href={`/admin/edit?id=${id}`}
-                                        className="p-4 ml-2 text-center text-white transition-all bg-blue-600 rounded-lg active:scale-90">
+                                        className="p-4 ml-2 text-center text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Edit Book Details">
                                         <svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z" /></svg>
                                     </Link>
 
                                     {/* DELETE BOOK BTN */}
-                                    <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90" onClick={() => deleteBook(bookDetails._id, setIsLoadingDeleteBook)}>
+                                    <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Delete Book" onClick={() => deleteBook(bookDetails._id, setIsLoadingDeleteBook)}>
                                         {
                                             isLoadingDeleteBook ?
                                                 <svg aria-hidden="true" width="23" height="23" className="text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

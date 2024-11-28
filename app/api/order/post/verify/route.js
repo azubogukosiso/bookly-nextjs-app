@@ -3,10 +3,7 @@ import Order from "@/app/(models)/Order.model";
 
 // VERIFY AN ORDER
 export async function POST(req) {
-    console.log("here we goooo!!!!");
     const json = await req.json();
-
-    console.log("paystack verification: ", json);
 
     try {
         async function verifyTransaction() {
@@ -24,20 +21,25 @@ export async function POST(req) {
 
                 const data = await response.json();
 
-                console.log("Here it is - the verification: ", data);
-
                 if (data) return data;
             } catch (error) {
-                console.log('Verification Error right here on the server:', error);
                 return NextResponse.json({ message: "Error", error }, { status: 500 });
             }
         }
 
         const verification_data = await verifyTransaction();
 
-        console.log("this is the json here: ", verification_data);
+        const email = verification_data.data.customer.email;
 
-        if (verification_data) return NextResponse.json({ verification_data }, { status: 200 });
+        const totalAmount = verification_data.data.amount / 100;
+
+        const { customerId, firstName, lastName, orderedBooks } = verification_data.data.metadata;
+
+        const order = await Order.create({ customerId, email, totalAmount, firstName, lastName, orderedBooks });
+
+        if (order) {
+            return NextResponse.json({ order }, { status: 200 });
+        }
     } catch (err) {
         return NextResponse.json({ message: "Error", err }, { status: 500 });
     }

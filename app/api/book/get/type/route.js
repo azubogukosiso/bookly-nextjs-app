@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 // GET BOOKS BY TYPE
 export async function GET(req) {
     const type = req.nextUrl.searchParams.get("type");
-    console.log("type here!", type);
 
     try {
         const books = await Book.find();

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-// GET ALL ORDERS
+// PLACE AN ORDER
 export async function POST(req) {
 
     try {
@@ -8,16 +8,20 @@ export async function POST(req) {
 
         console.log("paystack: ", json);
 
-        const { email, amount } = json;
+        const { customerId, email, totalAmount, orderedBooks, firstName, lastName } = json;
 
-        console.log("the params: ", email, amount);
+        console.log("the params: ", customerId, email, totalAmount, orderedBooks, firstName, lastName);
 
         const params = {
             email,
-            amount: parseFloat(amount * 100),
+            amount: parseFloat(totalAmount * 100),
             callback_url: "http://localhost:3000",
             metadata: {
-                "cancel_action": "http://localhost:3000"
+                customerId,
+                firstName,
+                lastName,
+                orderedBooks,
+                "cancel_action": "http://localhost:3000",
             }
         };
 

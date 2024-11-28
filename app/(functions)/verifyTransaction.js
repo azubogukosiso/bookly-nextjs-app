@@ -11,10 +11,12 @@ export const verifyTransaction = async (reference) => {
             body: JSON.stringify({ reference })
         }, { cache: "no-store" });
 
-        const { verification_data } = await res.json();
-        console.log("here is the json: ", verification_data);
+        const { order } = await res.json();
 
-        if (verification_data) return "Your order has been placed and verified successfully";
+        // if (order) return "Your order has been placed and verified successfully";
+        if (order) {
+            console.log("SAVED ORDER FORM DB: ", order);
+        }
     } catch (error) {
         // toast.error("Couldn't place the order. Please try again.", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
         console.log("this is the error: ", error);

@@ -21,8 +21,6 @@ export default async function Home({ searchParams }) {
 
   if (query.reference) {
     verificationMsg = await verifyTransaction(query.reference);
-
-    console.log("the verification message: ", verificationMsg);
   }
 
   return (

@@ -1,8 +1,10 @@
 import toast from 'react-hot-toast';
 
 // PLACE ORDER FUNCTION
-export const placeOrder = async (email, amount, firstName, lastName) => {
-    console.log("here are the params: ", email, amount);
+export const placeOrder = async (orderDetails) => {
+    const { customerId, email, totalAmount, orderedBooks, firstName, lastName } = orderDetails;
+
+    console.log("here are the params: ", customerId, email, totalAmount, orderedBooks, firstName, lastName);
 
     try {
         const res = await fetch("/api/order/post", {
@@ -10,7 +12,7 @@ export const placeOrder = async (email, amount, firstName, lastName) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ email, amount })
+            body: JSON.stringify({ customerId, email, totalAmount, orderedBooks, firstName, lastName })
         }, { cache: "no-store" });
 
         const { transaction_data } = await res.json();

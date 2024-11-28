@@ -49,6 +49,7 @@ const Navbar = ({ session }) => {
 
     return (
         <div className="navbar py-10 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
+            {/* ################## LOGO ################## */}
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -106,6 +107,8 @@ const Navbar = ({ session }) => {
                 </div>
                 <Link href={session?.user.role === "admin" ? "/admin" : "/"} className="btn btn-ghost text-xl font-[family-name:var(--font-pacifico)]">Bookly</Link>
             </div>
+
+            {/* ################## MAIN MENU ################## */}
             <div className="hidden navbar-center lg:flex">
                 <ul className="items-center px-1 menu menu-horizontal">
                     <li><Link href="/books?type=recent">Recent Additions</Link></li>
@@ -135,6 +138,7 @@ const Navbar = ({ session }) => {
                                 :
                                 <>
                                     <li><Link className="py-3" href="/books/favourites">Your Favourites</Link></li>
+                                    <li><Link className="py-3" href="/orders">Your Orders</Link></li>
                                     <li><Link className="py-3" href="/api/auth/signout?callbackUrl=/">Log Out</Link></li>
                                 </>
                             :
@@ -147,6 +151,7 @@ const Navbar = ({ session }) => {
             </div>
             {
                 session &&
+                // ################## NAVBAR END ITEMS ##################
                 <div className="gap-4 navbar-end">
                     {
                         // ################## SHOPPING CART ##################
@@ -201,7 +206,7 @@ const Navbar = ({ session }) => {
                                         {
                                             booksInCart.length > 0 &&
                                             <div className="card-actions">
-                                                <button className="w-full text-white bg-blue-600 btn" onClick={() => placeOrder(session.user.email, totalAmountInCart.toFixed(2))}>Checkout</button>
+                                                <button className="w-full text-white bg-blue-600 btn" onClick={() => placeOrder({ customerId: session.user.id, email: session.user.email, totalAmount: totalAmountInCart.toFixed(2), orderedBooks: booksInCart, firstName: session.user.firstName, lastName: session.user.lastName })}>Checkout</button>
                                             </div>
                                         }
                                     </div>
