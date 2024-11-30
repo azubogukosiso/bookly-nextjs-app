@@ -49,7 +49,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                                     {/* ADD TO FAVOURITES BTN */}
                                     {
                                         isFavourite ?
-                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Remove from Favourites" onClick={() => removeFromFavourites(bookDetails, session.user.id, setIsLoadingRemoveFromFavourites)}>
+                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip tooltip-left" data-tip="Remove from Favourites" onClick={() => removeFromFavourites(bookDetails, session.user.id, setIsLoadingRemoveFromFavourites)}>
                                                 {
                                                     isLoadingRemoveFromFavourites ?
                                                         <svg aria-hidden="true" width="23" height="23" className="text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                                                 }
                                             </button>
                                             :
-                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip" data-tip="Add to Favourites" onClick={() => addToFavourites(bookDetails, session.user.id, setIsLoadingAddToFavourites)}>
+                                            <button className="p-4 ml-2 text-white transition-all bg-blue-600 rounded-lg active:scale-90 tooltip tooltip-left" data-tip="Add to Favourites" onClick={() => addToFavourites(bookDetails, session.user.id, setIsLoadingAddToFavourites)}>
                                                 {
                                                     isLoadingAddToFavourites ?
                                                         <svg aria-hidden="true" width="23" height="23" className="text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

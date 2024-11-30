@@ -206,7 +206,7 @@ const Navbar = ({ session }) => {
                                         {
                                             booksInCart.length > 0 &&
                                             <div className="card-actions">
-                                                <button className="w-full text-white bg-blue-600 btn" onClick={() => placeOrder({ customerId: session.user.id, email: session.user.email, totalAmount: totalAmountInCart.toFixed(2), orderedBooks: booksInCart, firstName: session.user.firstName, lastName: session.user.lastName })}>Checkout</button>
+                                                <button className="w-full text-white bg-blue-600 btn" onClick={() => placeOrder({ customerId: session.user.id, email: session.user.email, totalAmount: totalAmountInCart.toFixed(2), orderedBooks: booksInCart, firstName: session.user.firstName, lastName: session.user.lastName, shippingAddress: session.user.shippingAddress })}>Checkout</button>
                                             </div>
                                         }
                                     </div>
