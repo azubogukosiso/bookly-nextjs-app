@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
     return (
         <footer className="footer p-10 rounded-md bg-blue-600 font-[family-name:var(--font-inter)] text-white">
@@ -7,22 +9,21 @@ const Footer = () => {
             </aside>
             <nav>
                 <h6 className="footer-title">Menu</h6>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Trending</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Recent Additions</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Most Purchased</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Genres</a>
+                <Link href="/books" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">All Books</Link>
+                <Link href="/books?type=recent" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Recent Additions</Link>
+                <Link href="/books?type=most-purchased" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Most Purchased</Link>
             </nav>
             <nav>
                 <h6 className="footer-title">Company</h6>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">About us</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Contact</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Site Map</a>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">About us</Link>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Contact</Link>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Site Map</Link>
             </nav>
             <nav>
                 <h6 className="footer-title">Social Media</h6>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Facebook</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Instagram</a>
-                <a className="link no-underline hover:bg-black/10 px-4 py-2 rounded-lg transition-all">Threads</a>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Facebook</Link>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Instagram</Link>
+                <Link href="#" className="px-4 py-2 no-underline transition-all rounded-lg link hover:bg-black/10">Threads</Link>
             </nav>
         </footer>
     )
