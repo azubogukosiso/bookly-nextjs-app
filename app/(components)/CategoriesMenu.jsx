@@ -1,30 +1,67 @@
 import CategoryCard from "@/app/(components)/CategoryCard";
-import Test from "@/public/images/School.svg";
+import Adventure from "@/public/images/Hiking 2.svg";
+import Humour from "@/public/images/Happy Face.svg";
+import Romance from "@/public/images/Couple.svg";
+import Horror from "@/public/images/Halloween.svg";
+import Mystery from "@/public/images/Alien 1.svg";
+import Biography from "@/public/images/Podcaster.svg";
+import Autobiography from "@/public/images/Laptop.svg";
+import Motivational from "@/public/images/Hero Employee.svg";
 
 const CategoriesMenu = () => {
+    const categoryProps = [
+        {
+            text: "Adventure",
+            image: Adventure,
+            link: "/books?category=adventure"
+        },
+        {
+            text: "Humour",
+            image: Humour,
+            link: "/books?category=humour"
+        },
+        {
+            text: "Romance",
+            image: Romance,
+            link: "/books?category=romance"
+        },
+        {
+            text: "Horror",
+            image: Horror,
+            link: "/books?category=horror"
+        },
+        {
+            text: "Mystery",
+            image: Mystery,
+            link: "/books?category=mystery"
+        },
+        {
+            text: "Biography",
+            image: Biography,
+            link: "/books?category=biography"
+        },
+        {
+            text: "Autobiography",
+            image: Autobiography,
+            link: "/books?category=autobiography"
+        },
+        {
+            text: "Motivational",
+            image: Motivational,
+            link: "/books?category=motivational"
+        }
+    ]
     return (
         <div className="mb-20">
-            <header className="flex w-3/4 flex-col lg:flex-row mb-10">
-                <h1 className="flex items-center h-32 flex-grow">Categories</h1>
+            <header className="flex flex-col w-3/4 mb-10 lg:flex-row">
+                <h1 className="flex items-center flex-grow h-32">Categories</h1>
                 <div className="bg-gray-500 w-[0.5px] mx-5"></div>
-                <p className="flex items-center h-32 flex-grow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, autem aut debitis aliquid exercitationem, voluptatem repellat ipsum.</p>
+                <p className="flex items-center flex-grow h-32">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, autem aut debitis aliquid exercitationem, voluptatem repellat ipsum.</p>
             </header>
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full text-white">
-                <CategoryCard categoryText={"Adventure"} categoryImg={Test} categoryLink={"/books?category=adventure"} />
-
-                <CategoryCard categoryText={"Humour"} categoryImg={Test} categoryLink={"/books?category=humour"} />
-
-                <CategoryCard categoryText={"Romance"} categoryImg={Test} categoryLink={"/books?category=romance"} />
-
-                <CategoryCard categoryText={"Horror"} categoryImg={Test} categoryLink={"/books?category=horror"} />
-
-                <CategoryCard categoryText={"Mystery"} categoryImg={Test} categoryLink={"/books?category=mystery"} />
-
-                <CategoryCard categoryText={"Biography"} categoryImg={Test} categoryLink={"/books?category=biography"} />
-
-                <CategoryCard categoryText={"Autobiography"} categoryImg={Test} categoryLink={"/books?category=autobiography"} />
-
-                <CategoryCard categoryText={"Motivational"} categoryImg={Test} categoryLink={"/books?category=motivational"} />
+            <section className="grid w-full grid-cols-1 gap-6 text-white lg:grid-cols-2">
+                {
+                    categoryProps.map((category, index) => <CategoryCard key={index} categoryText={category.text} categoryImg={category.image} categoryLink={category.link} />)
+                }
             </section>
         </div>
     )
