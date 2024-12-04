@@ -95,25 +95,25 @@ const AddBookForm = () => {
             <h3 className="m-3">Add a new book</h3>
 
             <form onSubmit={submitBook}>
-                <div className="flex justify-between mb-10">
-                    <div className="w-[47%]">
+                <div className="flex flex-col lg:flex-row justify-between mb-0 lg:mb-10">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="title">Title</label> <br />
                         <input type="text" name="title" id="title" value={title} onChange={e => setTitle(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's title here" />
                     </div>
 
-                    <div className="w-[47%]">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="author">Author</label> <br />
                         <input type="text" name="author" id="author" value={author} onChange={e => setAuthor(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's author here" />
                     </div>
                 </div>
 
-                <div className="flex justify-between mb-10">
-                    <div className="w-[47%]">
+                <div className="flex flex-col lg:flex-row justify-between mb-0 lg:mb-10">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="price">Price</label> <br />
                         <input name="price" type="text" id="price" value={price} onChange={e => setPrice(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's price here" />
                     </div>
 
-                    <div className="w-[47%]">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="category">Category</label> <br />
                         {/* <input type="text" id="category" value={category} onChange={e => setCategory(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's category here" /> */}
                         <select name='category' onChange={e => setCategory(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={category}>
@@ -130,13 +130,13 @@ const AddBookForm = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-between mb-10">
-                    <div className="w-[47%]">
+                <div className="flex flex-col lg:flex-row justify-between mb-0 lg:mb-10">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="description">Description</label> <br />
                         <textarea name="description" type="text" id="description" value={description} onChange={e => setDescription(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's description here" rows="10"></textarea>
                     </div>
 
-                    <div className="w-[47%]">
+                    <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="book-cover">Book Cover</label> <br />
                         <input name="book-cover" type="file" id="book-cover" className="hidden w-full border-2 border-gray-400 rounded-lg" ref={inputRef} multiple accept=".jpg, .jpeg, .png" onChange={handleImageChange} />
                         <div className="p-1 border-2 border-gray-400 cursor-pointer rounded-xl" onClick={handleClick}>
@@ -150,7 +150,6 @@ const AddBookForm = () => {
                                         Click to select an image
                                         <svg viewBox="0 0 24 24" width="23" height="23" className="ml-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" /></svg>
                                     </span>
-
                             }
                         </div>
                     </div>

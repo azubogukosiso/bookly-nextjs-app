@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 
-export const confirmOrder = async (orderId) => {
+export const orderInTransit = async (orderId) => {
     console.log("the order id: ", orderId);
 
     try {
@@ -9,7 +9,7 @@ export const confirmOrder = async (orderId) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ isConfirmed: true })
+            body: JSON.stringify({ inTransit: true })
         }, { cache: "no-store" });
 
         const json = await res.json();
@@ -22,6 +22,6 @@ export const confirmOrder = async (orderId) => {
         // REFRESH PAGE TO DISPLAY UPDATED ORDER DETAILS
         window.location.reload();
     } catch (error) {
-        toast.error("Couldn't confirm the order. Please check your internet connection and try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+        toast.error("Couldn't mark the order as in transit. Please check your internet connection and try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
     }
 }

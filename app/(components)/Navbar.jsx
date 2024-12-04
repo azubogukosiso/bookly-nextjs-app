@@ -49,7 +49,7 @@ const Navbar = ({ session }) => {
 
     return (
         <div className="navbar py-10 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
-            {/* ################## LOGO ################## */}
+            {/* ################## MENU FOR MOBILES ################## */}
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,10 +68,20 @@ const Navbar = ({ session }) => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black h-60 overflow-scroll">
-                        <li><Link className="py-3" href="/books?type=trending">Trending</Link></li>
-                        <li><Link className="py-3" href="/books?type=recent-additions">Recent Additions</Link></li>
-                        <li><Link className="py-3" href="/books?type=most-purchased">Most Purchased</Link></li>
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow-lg text-black h-96 overflow-y-scroll overflow-x-hidden flex-nowrap">
+                        {
+                            session?.user.role === "admin" ?
+                                <>
+                                    <li className="py-3"><Link href="/admin/customers" className="py-3">All Customers</Link></li>
+                                    <li className="py-3"><Link href="/admin/orders" className="py-3">All Orders</Link></li>
+                                    <li className="py-3"><Link href="/books" className="py-3">All Books</Link></li>
+                                </>
+                                :
+                                <>
+                                    <li><Link href="/books?type=recent" className="py-3">Recent Additions</Link></li>
+                                    <li><Link href="/books?type=most-purchased" className="py-3">Most Purchased</Link></li>
+                                </>
+                        }
                         <li>
                             <Link href="#" className="py-3">Categories</Link>
                             <ul className="p-2 text-black">
@@ -87,7 +97,7 @@ const Navbar = ({ session }) => {
                         </li>
                         {
                             session ?
-                                session.user.role === "admin" ?
+                                session?.user.role === "admin" ?
                                     <>
                                         <li><Link className="py-3" href="/api/auth/signout?callbackUrl=/">Log Out</Link></li>
 
@@ -95,6 +105,7 @@ const Navbar = ({ session }) => {
                                     :
                                     <>
                                         <li><Link className="py-3" href="/books/favourites">Your Favourites</Link></li>
+                                        <li><Link className="py-3" href="/orders">Your Orders</Link></li>
                                         <li><Link className="py-3" href="/api/auth/signout?callbackUrl=/">Log Out</Link></li>
                                     </>
                                 :
@@ -105,10 +116,11 @@ const Navbar = ({ session }) => {
                         }
                     </ul>
                 </div>
+                {/* ################## LOGO ################## */}
                 <Link href={session?.user.role === "admin" ? "/admin" : "/"} className="btn btn-ghost text-xl font-[family-name:var(--font-pacifico)]">Bookly</Link>
             </div>
 
-            {/* ################## MAIN MENU ################## */}
+            {/* ################## MENU FOR DESKTOPS ################## */}
             <div className="hidden navbar-center lg:flex">
                 <ul className="items-center px-1 menu menu-horizontal">
                     {
