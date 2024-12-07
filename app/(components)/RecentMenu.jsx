@@ -23,7 +23,7 @@ const BookMenu = async () => {
             <header className="flex flex-col w-3/4 mb-10 lg:flex-row">
                 <h1 className="flex items-center flex-grow h-32">Recent Additions</h1>
                 <div className="bg-gray-500 w-[0.5px] mx-5"></div>
-                <p className="flex items-center flex-grow h-32">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, autem aut debitis aliquid exercitationem, voluptatem repellat ipsum.</p>
+                <p className="inline-flex items-center flex-grow h-32">Here are the latest gems on the platform. Discover newly added books bursting with adventure, wisdom, and inspiration!</p>
             </header>
             <section className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
                 {

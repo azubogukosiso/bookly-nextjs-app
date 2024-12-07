@@ -2,6 +2,7 @@ import toast from 'react-hot-toast';
 
 // DELETE A BOOK
 export const deleteBook = async (bookId, setIsLoadingDeleteBook) => {
+    console.log("Delete");
     setIsLoadingDeleteBook(true);
 
     try {

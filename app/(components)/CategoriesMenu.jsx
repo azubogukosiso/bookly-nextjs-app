@@ -56,7 +56,7 @@ const CategoriesMenu = () => {
             <header className="flex flex-col w-3/4 mb-10 lg:flex-row">
                 <h1 className="flex items-center flex-grow h-32">Categories</h1>
                 <div className="bg-gray-500 w-[0.5px] mx-5"></div>
-                <p className="flex items-center flex-grow h-32">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, autem aut debitis aliquid exercitationem, voluptatem repellat ipsum.</p>
+                <p className="flex items-center flex-grow h-32">We have diverse books for diverse readers! Narrow down your search to the categories you love the best.</p>
             </header>
             <section className="grid w-full grid-cols-1 gap-6 text-white lg:grid-cols-2">
                 {

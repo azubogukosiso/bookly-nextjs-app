@@ -2,6 +2,7 @@ import toast from 'react-hot-toast';
 
 // REMOVE FROM FAVOURITES FUNCTION
 export const removeFromFavourites = async (book, user_id, setIsLoadingRemoveFromFavourites) => {
+    console.log("Remove from favs");
     setIsLoadingRemoveFromFavourites(true);
 
     try {
