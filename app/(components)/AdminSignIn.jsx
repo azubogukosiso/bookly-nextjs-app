@@ -1,36 +1,15 @@
 'use client'
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signInUser } from "@/app/(functions)/signInUser";
+
 
 const SignIn = () => {
-    const [data, setData] = useState({ email: '', password: '' });
+    const [data, setData] = useState({ email: '', password: '', isCustomer: false });
     const [showPassword, setShowPassword] = useState(false);
     const [emailErrMsg, setEmailErrMsg] = useState('');
     const [passwordErrMsg, setPasswordErrMsg] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-
-    const signInAdmin = async (e) => {
-
-        e.preventDefault();
-
-        setIsLoading(true);
-
-        setEmailErrMsg('');
-        setPasswordErrMsg('');
-
-        const res = await signIn('credentials', { ...data, redirect: false });
-        if (res?.error) {
-            setIsLoading(false);
-            const errorRes = await JSON.parse(res.error);
-            console.log("this is the error: ", errorRes);
-            if (errorRes.email) setEmailErrMsg(errorRes.email);
-            if (errorRes.password) setPasswordErrMsg(errorRes.password);
-        } else if (res?.ok) {
-            setIsLoading(false);
-            window.location.href = "/admin";
-        }
-    }
+    const [isLoading, setIsLoading] = useState(false)
 
     return (
         <div className="flex flex-col lg:flex-row my-20 min-h-[70vh]">
@@ -39,7 +18,7 @@ const SignIn = () => {
                 <p className="font">Strictly for <span className="font-[family-name:var(--font-pacifico)]">Bookly</span> admins.</p>
             </div>
 
-            <form className="flex flex-col justify-center w-full mt-10 lg:ml-10 lg:mt-0 lg:w-3/5" onSubmit={signInAdmin}>
+            <form className="flex flex-col justify-center w-full mt-10 lg:ml-10 lg:mt-0 lg:w-3/5" onSubmit={(e) => signInUser(e, { data, setEmailErrMsg, setPasswordErrMsg, setIsLoading })}>
                 <div>
                     <label htmlFor="email">Email</label> <br />
                     <input type="email" name="email" id="email" placeholder="Enter your email here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />

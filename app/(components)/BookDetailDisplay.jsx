@@ -15,6 +15,8 @@ const BookDetailDisplay = ({ book, session }) => {
 
     const { booksInCart, dispatch } = useCartContext();
 
+    const isDetailsDisplayPage = true;
+
     return (
         <div className="min-h-screen hero mt-14 lg:mt-0">
             <div className="flex-col w-full hero-content lg:flex-row">
@@ -59,10 +61,16 @@ const BookDetailDisplay = ({ book, session }) => {
                                         Edit Book
                                         <svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" className="ml-2" xmlns="http://www.w3.org/2000/svg"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z" /></svg>
                                     </Link>
-                                    <button disabled={isLoadingDeleteBook} className={`inline-flex items-center justify-center mt-3 lg:mt-0 lg:ml-3 p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95  ${isLoadingAddToFavourites && "opacity-75 cursor-not-allowed"}`} onClick={() => deleteBook(book._id, setIsLoadingDeleteBook)}>
+                                    <button disabled={isLoadingDeleteBook} className={`inline-flex items-center justify-center mt-3 lg:mt-0 lg:ml-3 p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95  ${isLoadingDeleteBook && "opacity-75 cursor-not-allowed"}`} onClick={() => deleteBook(book._id, setIsLoadingDeleteBook, isDetailsDisplayPage)}>
                                         {
                                             isLoadingDeleteBook ?
-                                                "Deleting Book..."
+                                                <>
+                                                    <svg aria-hidden="true" className="w-3 h-3 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                                                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                                                    </svg>
+                                                    Deleting Book...
+                                                </>
                                                 :
                                                 <>Delete Book
                                                     <svg viewBox="0 0 24 24" width="23" height="23" className="ml-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z" /></svg>

@@ -71,9 +71,9 @@ const Navbar = ({ session }) => {
 						{
 							session?.user.role === "admin" ?
 								<>
-									<li className="py-3"><Link href="/admin/customers" className="py-3">All Customers</Link></li>
-									<li className="py-3"><Link href="/admin/orders" className="py-3">All Orders</Link></li>
-									<li className="py-3"><Link href="/books" className="py-3">All Books</Link></li>
+									<li><Link href="/admin/customers" className="py-3">All Customers</Link></li>
+									<li><Link href="/admin/orders" className="py-3">All Orders</Link></li>
+									<li><Link href="/books" className="py-3">All Books</Link></li>
 								</>
 								:
 								<>
@@ -110,7 +110,7 @@ const Navbar = ({ session }) => {
 								:
 								<>
 									<li><Link className="py-3" href="/signin">Sign In</Link></li>
-									<li><Link className="py-3 text-blue-600 bg-white" href="/signup">Sign Up</Link></li>
+									<li><Link className="py-3" href="/signup">Sign Up</Link></li>
 								</>
 						}
 					</ul>

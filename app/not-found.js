@@ -16,7 +16,7 @@ export default async function NotFound() {
             <div className="ml-10">
                 <p className="text-lg">Oops! Looks like the page you&apos;re looking for does not exist.</p>
                 <div className="mt-3">
-                    <Link href={`${session.user.role === "admin" ? "/admin" : "/"}`} className="inline-block p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95">Go back home</Link>
+                    <Link href={`${session?.user.role === "admin" ? "/admin" : "/"}`} className="inline-block p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95">Go back home</Link>
                     <Link href="/books" className="inline-block p-3 mt-3 ml-0 text-white transition-all bg-blue-600 rounded-lg md:ml-3 md:mt-0 active:scale-95">Check out our catalogue of books</Link>
                 </div>
             </div>

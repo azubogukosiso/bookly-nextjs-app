@@ -2,38 +2,16 @@
 
 import { useState } from 'react';
 import Link from "next/link";
+import { signInUser } from "@/app/(functions)/signInUser";
 import { signIn } from 'next-auth/react';
 
 const SignIn = () => {
-    const [data, setData] = useState({ email: '', password: '' });
+    const [data, setData] = useState({ email: '', password: '', isCustomer: true });
     const [showPassword, setShowPassword] = useState(false);
     const [emailErrMsg, setEmailErrMsg] = useState('');
     const [passwordErrMsg, setPasswordErrMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
-
-    const signInCustomer = async (e) => {
-
-        console.log("here we are");
-
-        e.preventDefault();
-
-        setIsLoading(true);
-
-        setEmailErrMsg('');
-        setPasswordErrMsg('');
-
-        const res = await signIn('credentials', { ...data, redirect: false });
-        if (res?.error) {
-            setIsLoading(false);
-            const errorRes = await JSON.parse(res.error);
-            if (errorRes.email) setEmailErrMsg(errorRes.email);
-            if (errorRes.password) setPasswordErrMsg(errorRes.password);
-        } else if (res?.ok) {
-            window.location.href = "/";
-            setIsLoading(false);
-        }
-    }
 
     const googleLogin = async (e) => {
         try {
@@ -55,7 +33,7 @@ const SignIn = () => {
                 <p className="font">Create your <span className="font-[family-name:var(--font-pacifico)]">Bookly</span> account here. If you don&apos;have an account, click here to <Link href="/signup" className="underline">sign up</Link>.</p>
             </div>
 
-            <form className="flex flex-col justify-center w-full mt-10 lg:ml-10 lg:mt-0 lg:w-3/5" onSubmit={signInCustomer}>
+            <form className="flex flex-col justify-center w-full mt-10 lg:ml-10 lg:mt-0 lg:w-3/5" onSubmit={(e) => signInUser(e, { data, setEmailErrMsg, setPasswordErrMsg, setIsLoading })}>
                 <div>
                     <label htmlFor="email">Email</label> <br />
                     <input type="email" name="email" id="email" placeholder="Enter your email here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />
@@ -77,7 +55,7 @@ const SignIn = () => {
                     {passwordErrMsg && <p className="mt-2 text-red-500">{passwordErrMsg}</p>}
                 </div>
 
-                <button type="submit" className={`p-3 rounded-lg mt-10 text-white bg-blue-600 ${isLoading && "opacity-75 cursor-not-allowed"}`} disabled={isLoading}>{isLoading ?
+                <button type="submit" className={`p-3 rounded-lg mt-10 text-white bg-blue-600 transition-all active:scale-90 ${isLoading && "opacity-75 cursor-not-allowed"}`} disabled={isLoading}>{isLoading ?
                     <span className='flex items-center justify-center text-center'>
                         <svg aria-hidden="true" className="w-3 h-3 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />

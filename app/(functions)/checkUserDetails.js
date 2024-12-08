@@ -11,6 +11,7 @@ export const checkUserDetails = async (credentials) => {
         password: ""
     }
 
+    // SIGN IN CHECK
     if (!credentials.firstName && !credentials.lastName) {
         if (!credentials.email) {
             errObj.email = "Please input your email address.";
@@ -22,7 +23,13 @@ export const checkUserDetails = async (credentials) => {
             hasError = true;
         }
 
-        const userDetails = await User.findOne({ email: credentials.email });
+        let userDetails;
+
+        if (JSON.parse(credentials.isCustomer)) {
+            userDetails = await User.findOne({ email: credentials.email, role: "customer" });
+        } else {
+            userDetails = await User.findOne({ email: credentials.email, role: "admin" });
+        }
 
         if (!userDetails) {
             errObj.email = "No user with this email address exists.";
@@ -42,7 +49,7 @@ export const checkUserDetails = async (credentials) => {
                 }
             }
         }
-    } else {
+    } else { // SIGN UP CHECK        
         if (!credentials.firstName) {
             errObj.firstName = "Please input your first name.";
             hasError = true;
