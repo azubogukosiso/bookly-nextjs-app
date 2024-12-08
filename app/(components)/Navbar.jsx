@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useSession } from "next-auth/react"
 import { useCartContext } from "@/app/hooks/useCartContext";
 import { changeUserDetails } from "@/app/(functions)/changeUserDetails";
 import { placeOrder } from "@/app/(functions)/placeOrder";
+import ToasterContext from "@/app/(components)/ToasterContext";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -247,6 +248,8 @@ const Navbar = ({ session }) => {
 										</form>
 									</div>
 
+									<ToasterContext />
+
 									<form method="dialog" className="modal-backdrop">
 										<button>close</button>
 									</form>
@@ -403,6 +406,8 @@ const Navbar = ({ session }) => {
 										<button className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
 									</form>
 								</div>
+
+								<ToasterContext />
 
 								<form method="dialog" className="modal-backdrop">
 									<button>close</button>
