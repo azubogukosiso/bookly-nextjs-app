@@ -25,7 +25,7 @@ export default async function Home({ searchParams }) {
 
   return (
     <section className="font-[family-name:var(--font-inter)] mx-10">
-      <HomepageHero loginMsg={query.msg && query.msg} verificationMsg={verificationMsg && verificationMsg} session={session} />
+      <HomepageHero verificationMsg={verificationMsg} session={session} />
       <RecentMenu />
       <MostPurchasedMenu />
       <CategoriesMenu />

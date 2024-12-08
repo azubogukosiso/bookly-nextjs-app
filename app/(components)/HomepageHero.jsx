@@ -6,16 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from 'react';
 
-const HomepageHero = ({ loginMsg, verificationMsg, session }) => {
+const HomepageHero = ({ verificationMsg, session }) => {
 
     useEffect(() => {
-        if (loginMsg) toast.success(loginMsg, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
-
         if (verificationMsg) {
-            console.log("this is it");
-            toast.success(verificationMsg, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            if (verificationMsg.isVerified) {
+                toast.success(verificationMsg.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            } else {
+                toast.error(verificationMsg.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            }
         }
-    }, [loginMsg, verificationMsg]);
+
+    }, [verificationMsg]);
 
     return (
         <div className="hero min-h-screen font-[family-name:var(--font-inter)] mt-14 lg:mt-0">

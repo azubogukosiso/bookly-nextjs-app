@@ -22,6 +22,9 @@ export const placeOrder = async (orderDetails) => {
         const { transaction_data } = await res.json();
 
         window.location.href = transaction_data.data.authorization_url;
+
+        localStorage.removeItem("bookly-cart");
+
     } catch (error) {
         orderDetails.setIsLoadingOrder(false);
         toast.error("Couldn't place the order. Please try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
