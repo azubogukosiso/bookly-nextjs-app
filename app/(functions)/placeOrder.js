@@ -2,12 +2,13 @@ import toast from 'react-hot-toast';
 
 // PLACE ORDER FUNCTION
 export const placeOrder = async (orderDetails) => {
-    console.log(orderDetails);
 
-    // if (!orderDetails.shippingAddress) {
-    //     console.log("There is no shipping address provided.");
-    //     return;
-    // }
+    orderDetails.setIsLoadingOrder(true);
+
+    if (orderDetails.shippingAddress === "" || orderDetails.shippingAddress === undefined) {
+        toast.error("Please provide a shipping address before placing an order", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+        return;
+    }
 
     try {
         const res = await fetch("/api/order/post", {
@@ -22,6 +23,7 @@ export const placeOrder = async (orderDetails) => {
 
         window.location.href = transaction_data.data.authorization_url;
     } catch (error) {
-        toast.error("Couldn't place the order. Please try again.", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+        orderDetails.setIsLoadingOrder(false);
+        toast.error("Couldn't place the order. Please try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
     }
 };

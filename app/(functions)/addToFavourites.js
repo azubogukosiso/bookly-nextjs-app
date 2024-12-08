@@ -2,7 +2,6 @@ import toast from 'react-hot-toast';
 
 // ADD TO FAVOURITES FUNCTION
 export const addToFavourites = async (book, user_id, setIsLoadingAddToFavourites) => {
-    console.log("Add to favs");
     setIsLoadingAddToFavourites(true);
 
     try {
