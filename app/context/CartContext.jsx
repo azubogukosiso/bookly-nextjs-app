@@ -55,20 +55,25 @@ export const cartReducer = (state, action) => {
     };
 };
 
-export const CartContextProvider = ({ children }) => {
+export const CartContextProvider = ({ children, session }) => {
     const [state, dispatch] = useReducer(cartReducer, {
         booksInCart: []
     });
 
     useEffect(() => {
-        const booksInCartLocalStorage = JSON.parse(localStorage.getItem('bookly-cart'));
-
-        if (booksInCartLocalStorage) {
-            dispatch({ type: 'CREATE_CART', payload: booksInCartLocalStorage });
+        if (!session) {
+            localStorage.removeItem("bookly-cart");
         } else {
-            localStorage.setItem("bookly-cart", JSON.stringify([]));
+            const booksInCartLocalStorage = JSON.parse(localStorage.getItem('bookly-cart'));
+
+            if (booksInCartLocalStorage) {
+                dispatch({ type: 'CREATE_CART', payload: booksInCartLocalStorage });
+            } else {
+                localStorage.setItem("bookly-cart", JSON.stringify([]));
+            }
         }
-    }, []);
+
+    }, [session]);
 
     return (
         <CartContext.Provider value={{ ...state, dispatch }}>

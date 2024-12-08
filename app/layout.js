@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <AuthProvider>
-        <CartContextProvider>
+        <CartContextProvider session={session}>
           <body
             className={`${inter.variable} ${pacifico.variable} antialiased grid grid-rows-[auto_1fr_auto] h-screen p-5`}
           >

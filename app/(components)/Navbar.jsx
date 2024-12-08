@@ -99,10 +99,7 @@ const Navbar = ({ session }) => {
 						{
 							session ?
 								session?.user.role === "admin" ?
-									<>
-										<li><Link className="py-3" href="/api/auth/signout?callbackUrl=/">Log Out</Link></li>
-
-									</>
+									<li><Link className="py-3" href="/api/auth/signout?callbackUrl=/">Log Out</Link></li>
 									:
 									<>
 										<li><Link className="py-3" href="/books/favourites">Your Favourites</Link></li>
