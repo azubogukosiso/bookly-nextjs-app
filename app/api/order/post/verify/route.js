@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Order from "@/app/(models)/Order.model";
+import Book from "@/app/(models)/Book.model";
 
 // VERIFY AN ORDER
 export async function POST(req) {
@@ -36,6 +37,11 @@ export async function POST(req) {
         const { customerId, firstName, lastName, orderedBooks } = verification_data.data.metadata;
 
         const order = await Order.create({ customerId, email, totalAmount, firstName, lastName, orderedBooks });
+
+        orderedBooks.map(async (book) => {
+            const bookToUpdate = await findByIdAndUpdate(book._id, { $inc: { purchaseCount: 1 } }, { new: true });
+            console.log("the updated count: ", bookToUpdate);
+        })
 
         if (order) {
             return NextResponse.json({ order }, { status: 200 });

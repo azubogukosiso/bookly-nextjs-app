@@ -11,7 +11,7 @@ import { deleteBook } from "@/app/(functions)/deleteBook";
 
 import Image from "next/image";
 import Link from "next/link";
-import Test from "@/public/images/my CV.png";
+import Placeholder from "@/public/images/placeholder.png";
 
 const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavourite }) => {
     const [isLoadingRemoveFromFavourites, setIsLoadingRemoveFromFavourites] = useState(false);
@@ -23,7 +23,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
     return (
         <div className="p-1 border-2 border-gray-300 rounded-xl">
             <figure className="h-[50vh] relative overflow-hidden rounded-lg group">
-                <Image src={!image ? Test : image} className="relative" alt="test image" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" style={{ objectFit: "cover" }} />
+                <Image src={!image ? Placeholder : image} className="relative" alt="test image" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" style={{ objectFit: "cover" }} />
 
                 <div className="absolute flex flex-col items-start justify-between w-full h-full p-5 transition-opacity opacity-0 pointer-events-none bg-gray-300/40 backdrop-blur-sm backdrop-brightness-50 group-hover:opacity-100 group-hover:pointer-events-auto">
                     <div>

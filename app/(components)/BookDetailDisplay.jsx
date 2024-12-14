@@ -1,6 +1,6 @@
 "use client";
 
-import Test from "@/public/images/my CV.png";
+import Placeholder from "@/public/images/placeholder.png";
 import Image from "next/image";
 import { useCartContext } from "@/app/hooks/useCartContext";
 import { useState } from "react";
@@ -86,7 +86,7 @@ const BookDetailDisplay = ({ book, session }) => {
                 </div>
                 <div className="w-full lg:w-[30%] h-[50vh] p-1 border-2 border-gray-300 rounded-xl">
                     <figure className="relative w-full h-full overflow-hidden rounded-lg">
-                        <Image src={!book.image ? Test : book.image} alt="" className="object-cover w-full border" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" />
+                        <Image src={!book.image ? Placeholder : book.image} alt="" className="object-cover w-full border" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" />
                     </figure>
                 </div>
             </div>

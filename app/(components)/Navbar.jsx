@@ -9,7 +9,7 @@ import ToasterContext from "@/app/(components)/ToasterContext";
 
 import Link from "next/link";
 import Image from "next/image";
-import Test from "@/public/images/my CV.png";
+import Placeholder from "@/public/images/placeholder.png";
 
 const Navbar = ({ session }) => {
 	const { update } = useSession();
@@ -49,7 +49,7 @@ const Navbar = ({ session }) => {
 	}, 0);
 
 	return (
-		<div className="navbar py-10 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
+		<nav className="navbar py-10 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
 			{/* ################## MENU FOR MOBILES ################## */}
 			<div className="navbar-start">
 				<div className="dropdown">
@@ -200,7 +200,7 @@ const Navbar = ({ session }) => {
 												<div className={`relative flex flex-col justify-between ${booksInCart.length - 1 !== index && "mb-5"} md:flex-row bg-slate-200 p-5 rounded-lg block`} key={book._id}>
 													<div className="w-full md:w-[70%] flex">
 														<div className="relative w-[50%] md:w-[30%] p-1 overflow-hidden border-2 border-gray-300 rounded-xl h-40">
-															<Image src={!book.image ? Test : book.image} className="relative" alt="test image" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" style={{ objectFit: "cover" }} />
+															<Image src={!book.image ? Placeholder : book.image} className="relative" alt="Placeholder image" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" style={{ objectFit: "cover" }} />
 														</div>
 														<div className="flex flex-col items-start w-[50%] justify-center ps-2">
 															<span className="font-bold">{book.title}</span>
@@ -415,7 +415,7 @@ const Navbar = ({ session }) => {
 					:
 					<div className="navbar-end"></div>
 			}
-		</div>
+		</nav>
 	)
 }
 
