@@ -8,6 +8,7 @@ import { addToCart } from '@/app/(functions)/addToCart';
 import { addToFavourites } from "@/app/(functions)/addToFavourites";
 import { deleteBook } from "@/app/(functions)/deleteBook";
 import Link from "next/link";
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 const BookDetailDisplay = ({ book, session }) => {
     const [isLoadingAddToFavourites, setIsLoadingAddToFavourites] = useState(false);
@@ -22,7 +23,7 @@ const BookDetailDisplay = ({ book, session }) => {
             <div className="flex-col w-full hero-content lg:flex-row">
                 <div className="text-center lg:text-left lg:w-[50%] lg:ml-5">
                     <h1 className="text-3xl font-bold">{book.title} - <i className="font-normal">by {book.author}</i> </h1>
-                    <h3>${book.price}</h3>
+                    <h3>{getSymbolFromCurrency("NGN")}{book.price}</h3>
                     <p className="my-4">
                         {!book.description ?
                             "--"

@@ -35,7 +35,7 @@ const HomepageHero = ({ verificationMsg, session }) => {
                         <p className="py-6">🤭 Pssst! We noticed you&apos;re not signed in. <Link href="/signin" className="underline underline-offset-2">Sign in here</Link> or <Link href="/signup" className="underline underline-offset-2">create a new account here</Link></p>
                     }
                 </div>
-                <Image className="w-full lg:w-[35%]" src={Test} alt="A man sitting on top of books and reading a book" />
+                <Image className="w-full lg:w-[35%]" src={Test} alt="A man sitting on top of books and reading a book" priority={true} />
             </div>
         </div>
     )

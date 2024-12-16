@@ -39,13 +39,11 @@ export async function POST(req) {
         const order = await Order.create({ customerId, email, totalAmount, firstName, lastName, orderedBooks });
 
         orderedBooks.map(async (book) => {
-            const bookToUpdate = await findByIdAndUpdate(book._id, { $inc: { purchaseCount: 1 } }, { new: true });
+            const bookToUpdate = await Book.findByIdAndUpdate(book._id, { $inc: { purchaseCount: 1 } }, { new: true });
             console.log("the updated count: ", bookToUpdate);
         })
 
-        if (order) {
-            return NextResponse.json({ order }, { status: 200 });
-        }
+        if (order) return NextResponse.json({ order }, { status: 200 });
     } catch (err) {
         return NextResponse.json({ message: "Error", err }, { status: 500 });
     }

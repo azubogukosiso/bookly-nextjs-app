@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CategoryCard = ({ categoryText, categoryImg, categoryLink }) => {
+const CategoryCard = ({ categoryText, categoryImg, categoryLink, categoryAltText }) => {
     return (
         <Link href={categoryLink} className="bg-blue-600 rounded-lg h-[50vh] p-5 flex flex-col justify-between">
-            <Image src={categoryImg} alt="" className="w-full md:w-1/2 h-3/4 p-0" />
+            <Image src={categoryImg} alt={categoryAltText} className="w-full md:w-1/2 h-3/4 p-0" priority={false} />
             <div className="flex items-end justify-between">
                 <p className="text-2xl">{categoryText}</p>
 

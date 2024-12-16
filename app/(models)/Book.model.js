@@ -10,6 +10,10 @@ const bookSchema = new Schema(
         price: Number,
         category: String,
         description: String,
+        pruchaseCount: {
+            type: Number,
+            default: 0
+        },
         image: {
             type: String,
             default: null

@@ -13,42 +13,50 @@ const CategoriesMenu = () => {
         {
             text: "Adventure",
             image: Adventure,
-            link: "/books?category=adventure"
+            link: "/books?category=adventure",
+            alt: "A hiker standing a hill and looking into the distance"
         },
         {
             text: "Humour",
             image: Humour,
-            link: "/books?category=humour"
+            link: "/books?category=humour",
+            alt: "A man with a laughing emoji for a face"
         },
         {
             text: "Romance",
             image: Romance,
-            link: "/books?category=romance"
+            link: "/books?category=romance",
+            alt: "A couple walking with an umbrella under the rain"
         },
         {
             text: "Horror",
             image: Horror,
-            link: "/books?category=horror"
+            link: "/books?category=horror",
+            alt: "A person dressed as ghost holding a pumpkin and a candle for Halloween"
         },
         {
             text: "Mystery",
             image: Mystery,
-            link: "/books?category=mystery"
+            link: "/books?category=mystery",
+            alt: "An alien being beamed down from a spaceship"
         },
         {
             text: "Biography",
             image: Biography,
-            link: "/books?category=biography"
+            link: "/books?category=biography",
+            alt: "A woman interviewing a man in a podacast"
         },
         {
             text: "Autobiography",
             image: Autobiography,
-            link: "/books?category=autobiography"
+            link: "/books?category=autobiography",
+            alt: "A man typing on his laptop"
         },
         {
             text: "Motivational",
             image: Motivational,
-            link: "/books?category=motivational"
+            link: "/books?category=motivational",
+            alt: "A superhero employee flying with a cape and a briefcase"
         }
     ]
     return (
@@ -60,7 +68,7 @@ const CategoriesMenu = () => {
             </header>
             <section className="grid w-full grid-cols-1 gap-6 text-white lg:grid-cols-2">
                 {
-                    categoryProps.map((category, index) => <CategoryCard key={index} categoryText={category.text} categoryImg={category.image} categoryLink={category.link} />)
+                    categoryProps.map((category, index) => <CategoryCard key={index} categoryText={category.text} categoryImg={category.image} categoryLink={category.link} categoryAltText={category.alt} />)
                 }
             </section>
         </div>

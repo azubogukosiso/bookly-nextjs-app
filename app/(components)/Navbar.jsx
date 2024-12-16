@@ -10,6 +10,7 @@ import ToasterContext from "@/app/(components)/ToasterContext";
 import Link from "next/link";
 import Image from "next/image";
 import Placeholder from "@/public/images/placeholder.png";
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 const Navbar = ({ session }) => {
 	const { update } = useSession();
@@ -199,12 +200,12 @@ const Navbar = ({ session }) => {
 											booksInCart.map((book, index) => (
 												<div className={`relative flex flex-col justify-between ${booksInCart.length - 1 !== index && "mb-5"} md:flex-row bg-slate-200 p-5 rounded-lg block`} key={book._id}>
 													<div className="w-full md:w-[70%] flex">
-														<div className="relative w-[50%] md:w-[30%] p-1 overflow-hidden border-2 border-gray-300 rounded-xl h-40">
+														<div className="relative w-[50%] md:w-[30%] p-1 overflow-hidden rounded-xl h-40">
 															<Image src={!book.image ? Placeholder : book.image} className="relative" alt="Placeholder image" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" style={{ objectFit: "cover" }} />
 														</div>
-														<div className="flex flex-col items-start w-[50%] justify-center ps-2">
+														<div className="flex flex-col items-start w-[50%] justify-center ps-5">
 															<span className="font-bold">{book.title}</span>
-															<span className="my-1">${book.price}</span>
+															<span className="my-1">{getSymbolFromCurrency("NGN")}{book.price}</span>
 															<button className="px-2 py-1 text-white transition-all bg-red-600 rounded-lg active:scale-90" onClick={() => dispatch({ type: 'REMOVE_FROM_CART', payload: book })}>
 																Remove
 															</button>
@@ -220,7 +221,7 @@ const Navbar = ({ session }) => {
 										}
 
 										<div className="mt-5">
-											<span className="text-gray-700">Subtotal: ${totalAmountInCart && parseFloat(totalAmountInCart.toFixed(2))}</span>
+											<span className="text-gray-700">Subtotal: {getSymbolFromCurrency("NGN")}{totalAmountInCart}</span>
 											{
 												booksInCart.length > 0 &&
 												<div className="card-actions">

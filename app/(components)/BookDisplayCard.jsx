@@ -12,6 +12,7 @@ import { deleteBook } from "@/app/(functions)/deleteBook";
 import Image from "next/image";
 import Link from "next/link";
 import Placeholder from "@/public/images/placeholder.png";
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavourite }) => {
     const [isLoadingRemoveFromFavourites, setIsLoadingRemoveFromFavourites] = useState(false);
@@ -28,7 +29,7 @@ const BookDisplayCard = ({ title, price, image, id, bookDetails, session, isFavo
                 <div className="absolute flex flex-col items-start justify-between w-full h-full p-5 transition-opacity opacity-0 pointer-events-none bg-gray-300/40 backdrop-blur-sm backdrop-brightness-50 group-hover:opacity-100 group-hover:pointer-events-auto">
                     <div>
                         <h1 className="text-3xl text-white">{title}</h1>
-                        <p className="text-xl text-white">${price}</p>
+                        <p className="text-xl text-white">{getSymbolFromCurrency("NGN")}{price}</p>
                     </div>
                     <div className="flex flex-col justify-between w-full lg:flex-row">
                         <div></div>
