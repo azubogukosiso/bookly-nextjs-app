@@ -76,7 +76,7 @@ const OrderCardComponent = ({ firstName, orderId, lastName, email, shippingAddre
                                 :
                                 <button className="p-3 ml-3 text-white bg-blue-600 rounded-lg transition-all active:scale-95" onClick={() => orderInTransit(orderId)}>Mark Order as In Transit</button>
                             :
-                            session.user.role === "admin" && <button className="p-3 text-white bg-blue-600 rounded-lgtransition-all active:scale-95" onClick={() => confirmOrder(orderId)}>Confirm Order</button>
+                            session.user.role === "admin" && <button className="p-3 text-white bg-blue-600 rounded-lg transition-all active:scale-95" onClick={() => confirmOrder(orderId)}>Confirm Order</button>
                     }
                 </>
             </div>

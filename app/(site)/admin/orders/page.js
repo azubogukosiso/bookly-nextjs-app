@@ -13,7 +13,7 @@ const page = async () => {
 
     return (
         <section className='font-[family-name:var(--font-inter)] m-10'>
-            <h1 className="mt-20 mb-10">Orders</h1>
+            <h1 className="my-10">Orders</h1>
             <div className="grid w-full grid-cols-1 gap-6">
                 {
                     orders.data.length > 0 ?

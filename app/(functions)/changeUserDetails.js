@@ -31,14 +31,14 @@ export const changeUserDetails = async (e, userDetail, detailType, user_id, setL
 
         if (res.ok) {
             setLoadingState(false);
-            toast.success(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            toast.success(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
 
             handleSessionEdit(); // UPDATES THE SESSION OBJECT TO RENDER THE NEWLY EDITED PROFILE DETAILS
         } else {
             setLoadingState(false);
-            toast.error(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            toast.error(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
         }
     } catch (err) {
-        toast.error("Error updating user details. Please try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+        toast.error("Error updating user details. Please try again", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
     }
 }

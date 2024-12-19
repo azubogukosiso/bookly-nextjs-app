@@ -39,10 +39,16 @@ const page = async ({ searchParams }) => {
     let books;
 
     if (type !== undefined) {
-        if (type === "recent") header = "Recent Additions";
-        if (type === "most-purchased") header = "Most Purchased";
+        if (type === "recent") {
+            header = "Recent Additions";
+            books = await fetchBooksByType(type);
+        }
 
-        books = await fetchBooksByType(type);
+        if (type === "most-purchased") {
+            header = "Most Purchased";
+            books = await fetchBooksByType(type);
+        }
+
     } else if (category !== undefined) {
         header = `${category.charAt(0).toUpperCase() + category.slice(1)} Books`;
 
@@ -54,7 +60,7 @@ const page = async ({ searchParams }) => {
     return (
         <section className="font-[family-name:var(--font-inter)] mx-10">
             <h1 className="mt-20 mb-10">{header}</h1>
-            <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-20">
+            <section className="grid w-full grid-cols-1 gap-6 mb-20 lg:grid-cols-2">
                 {
                     books.data.length > 0 ?
                         books.data.map((book) => (

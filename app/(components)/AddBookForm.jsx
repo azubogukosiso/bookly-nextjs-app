@@ -63,23 +63,27 @@ const AddBookForm = () => {
 
             const json = await response.json();
 
-            console.log(response, json);
-
-            if (json) {
-                // toast.success(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            if (!response.ok) {
+                toast.error(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
+                setIsLoadingCreateBook(false);
+            } else {
+                toast.success(json.message, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
 
                 setIsLoadingCreateBook(false);
 
-                // setTitle("");
-                // setAuthor("");
-                // setPrice("");
-                // setCategory("");
-                // setDescription("");
-                // setPreviewImg("");
-                // setImageFile("");
+                setTitle("");
+                setAuthor("");
+                setPrice("");
+                setCategory("");
+                setDescription("");
+                setPreviewImg("");
+                setImageFile("");
             }
+
+
         } catch (error) {
-            // toast.error(error, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
+            console.log("Siuuu: ", error);
+            toast.error(error, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px' }, className: "font-[family-name:var(--font-inter)]" });
             setIsLoadingCreateBook(false);
         }
     }
@@ -122,7 +126,6 @@ const AddBookForm = () => {
 
                     <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
                         <label htmlFor="category">Category</label> <br />
-                        {/* <input type="text" id="category" value={category} onChange={e => setCategory(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's category here" /> */}
                         <select name='category' onChange={e => setCategory(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={category}>
                             <option value=''>Click to select a category</option>
                             <option value="Adventure">Adventure</option>

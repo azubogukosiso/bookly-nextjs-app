@@ -24,6 +24,6 @@ export async function POST(req) {
         }
     } catch (error) {
         console.log("this is the error guys: ", error);
-        return NextResponse.json({ message: error }, { status: 500 });
+        return NextResponse.json({ message: "Unable to create the book. Please ensure you're online and try again" }, { status: 500 });
     }
 }

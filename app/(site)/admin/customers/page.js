@@ -7,7 +7,7 @@ const page = async () => {
     return (
         <section className='font-[family-name:var(--font-inter)] m-10'>
             <section>
-                <h3 className="m-3">Customer Profiles</h3>
+                <h1 className="my-10">Customer Profiles</h1>
             </section>
             <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
                 {
