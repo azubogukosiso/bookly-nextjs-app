@@ -17,7 +17,7 @@ const SignIn = () => {
         try {
             e.preventDefault();
             setIsGoogleLoading(true);
-            const res = await signIn('google-customer', { callbackUrl: '/' });
+            const res = await signIn('google_customer', { callbackUrl: '/' });
             if (res) {
                 setIsGoogleLoading(false);
             }

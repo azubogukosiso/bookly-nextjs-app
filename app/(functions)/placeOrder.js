@@ -5,7 +5,8 @@ export const placeOrder = async (orderDetails) => {
 
     orderDetails.setIsLoadingOrder(true);
 
-    if (orderDetails.shippingAddress === "" || orderDetails.shippingAddress === undefined) {
+    if (orderDetails.shippingAddress === "" || !orderDetails.shippingAddress) {
+        orderDetails.setIsLoadingOrder(false);
         toast.error("Please provide a shipping address before placing an order", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
         return;
     }

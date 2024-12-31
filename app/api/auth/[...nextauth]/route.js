@@ -7,8 +7,8 @@ import { checkUserDetails } from "@/app/(functions)/checkUserDetails";
 export const authOptions = {
     providers: [
         {
-            id: "google-customer",
-            name: "google-customer",
+            id: "google_customer",
+            name: "google_customer",
             type: "oauth",
             wellKnown: "https://accounts.google.com/.well-known/openid-configuration",
             authorization: { params: { scope: "openid email profile" } },
@@ -17,6 +17,8 @@ export const authOptions = {
             async profile(profile) {
                 try {
                     const user = await User.findOne({ email: profile.email, role: "customer" });
+
+                    console.log("the user and the profile are here: ", user, profile);
 
                     if (user) {
                         return user;
@@ -96,7 +98,8 @@ export const authOptions = {
                     firstName: session.firstName,
                     lastName: session.lastName,
                     email: session.email,
-                    shippingAddress: session.shippingAddress
+                    shippingAddress: session.shippingAddress,
+                    isGoogleAccount: token.isGoogleAccount
                 }
             }
 
@@ -104,7 +107,7 @@ export const authOptions = {
         },
 
         async session({ session, token }) {
-            // PASS TOKEN'S ID, ROLE, FIRST NAME, LAST NAME, SHIPPING ADDR. AND ACCOUNT TYPE (PASSED FROM USER OBJECT ABOVE) TO SESSION
+            // PASS TOKEN'S ID, ROLE, FIRST NAME, LAST NAME, SHIPPING ADDR. AND ACCOUNT TYPE (PASSED IN FROM USER OBJECT ABOVE) TO SESSION
             return {
                 ...session,
                 user: {
@@ -124,7 +127,7 @@ export const authOptions = {
 
             if (!error) return true; // USER IS GOOD TO GO
 
-            if (account?.provider === "google-customer") {
+            if (account?.provider === "google_customer") {
                 return `/signin?error=${error}`;
             }
         }
@@ -133,7 +136,7 @@ export const authOptions = {
     session: {
         strategy: "jwt",
     },
-    debug: process.env.NODE_ENV === "development",
+    debug: true,
 }
 
 const handler = NextAuth(authOptions)

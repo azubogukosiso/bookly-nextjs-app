@@ -6,10 +6,12 @@ export const changeUserDetails = async (e, userDetail, detailType, user_id, setL
     setLoadingState(true);
 
     if (!userDetail) {
+        setLoadingState(false);
         toast.error("Fill the required fields!", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
         return;
     } else if (detailType === "password") {
         if (!userDetail.oldPassword || !userDetail.newPassword) {
+            setLoadingState(false);
             toast.error("Fill the required fields!", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
             return;
         }
