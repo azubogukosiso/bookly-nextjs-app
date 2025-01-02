@@ -9,17 +9,25 @@ export async function PUT(req) {
     console.log("this is the book data: ", json.bookData);
 
     try {
-        // if ()
-        const imgURL = await cloudinaryUpload(json.bookData.imageFile, "bookly_uploads");
+        if (json.bookData.imageFile) {
+            const imgURL = await cloudinaryUpload(json.bookData.imageFile, "bookly_uploads");
 
-        json.bookData.image = imgURL;
+            json.bookData.image = imgURL;
 
-        const book = await Book.findByIdAndUpdate(json.bookData.id, json.bookData, { new: true });
+            const book = await Book.findByIdAndUpdate(json.bookData.id, json.bookData, { new: true });
 
-        if (book) return NextResponse.json(
-            { message: "Details updated successfully!" },
-            { status: 201 }
-        );
+            if (book) return NextResponse.json(
+                { message: "Details updated successfully!" },
+                { status: 201 }
+            )
+        } else {
+            const book = await Book.findByIdAndUpdate(json.bookData.id, json.bookData, { new: true });
+
+            if (book) return NextResponse.json(
+                { message: "Details updated successfully!" },
+                { status: 201 }
+            )
+        }
     } catch (err) {
         return NextResponse.json(
             { message: "Error", err },
