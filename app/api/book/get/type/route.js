@@ -7,7 +7,7 @@ export async function GET(req) {
 
     if (type === "recent") {
         try {
-            const books = await Book.find().sort({ createdAt: -1 });
+            const books = await Book.find().sort({ createdAt: -1 }).limit(6);
 
             return NextResponse.json(
                 { data: books },
@@ -23,7 +23,7 @@ export async function GET(req) {
 
     if (type === "most-purchased") {
         try {
-            const books = await Book.find();
+            const books = await Book.find().sort({ purchaseCount: -1 }).limit(6);
 
             return NextResponse.json(
                 { data: books },

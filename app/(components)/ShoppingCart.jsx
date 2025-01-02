@@ -79,7 +79,7 @@ const ShoppingCart = ({ session }) => {
                                 {
                                     booksInCart.length > 0 &&
                                     <div className="card-actions">
-                                        <button className={`w-full p-2 rounded-lg text-white bg-blue-600 ${isLoadingOrder && "opacity-75 cursor-not-allowed"}`} onClick={() => placeOrder({ customerId: session.user.id, email: session.user.email, totalAmount: totalAmountInCart.toFixed(2), orderedBooks: booksInCart, firstName: session.user.firstName, lastName: session.user.lastName, shippingAddress: session.user.shippingAddress, setIsLoadingOrder })}>
+                                        <button className={`w-full p-2 rounded-lg text-white bg-blue-600 active:scale-95 transition-all ${isLoadingOrder && "opacity-75 cursor-not-allowed"}`} onClick={() => placeOrder({ customerId: session.user.id, email: session.user.email, totalAmount: totalAmountInCart.toFixed(2), orderedBooks: booksInCart, firstName: session.user.firstName, lastName: session.user.lastName, shippingAddress: session.user.shippingAddress, setIsLoadingOrder })}>
                                             {isLoadingOrder ?
                                                 <span className='flex items-center justify-center text-center'>
                                                     <svg aria-hidden="true" className="w-3 h-3 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

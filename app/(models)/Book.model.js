@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_ATLAS_URI);
 mongoose.Promise = global.Promise;
 
 const bookSchema = new Schema(
@@ -10,7 +10,7 @@ const bookSchema = new Schema(
         price: Number,
         category: String,
         description: String,
-        pruchaseCount: {
+        purchaseCount: {
             type: Number,
             default: 0
         },
