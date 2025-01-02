@@ -7,7 +7,7 @@ const RecommendationMenu = async ({ recommendedBooks, title }) => {
 
     return (
         <div className="mt-20 mb-20 lg:mt-0">
-            <h1 className="mb-3 text-3xl">Since you checked out <i className="font-normal">{title} ...</i></h1>
+            <h1 className="mb-3 text-3xl">More books like <i className="font-normal">{title}</i></h1>
             {
                 recommendedBooks && recommendedBooks.length > 0 ?
                     <section className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">

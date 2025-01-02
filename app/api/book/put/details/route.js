@@ -6,8 +6,6 @@ import { NextResponse } from "next/server";
 export async function PUT(req) {
     const json = await req.json();
 
-    console.log("this is the book data: ", json.bookData);
-
     try {
         if (json.bookData.imageFile) {
             const imgURL = await cloudinaryUpload(json.bookData.imageFile, "bookly_uploads");
