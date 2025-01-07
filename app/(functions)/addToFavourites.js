@@ -21,6 +21,7 @@ export const addToFavourites = async (book, user_id, setIsLoadingAddToFavourites
         }
 
     } catch (error) {
+        setIsLoadingAddToFavourites(false);
         toast.error("Couldn't add the book to favourites", { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
     }
 };

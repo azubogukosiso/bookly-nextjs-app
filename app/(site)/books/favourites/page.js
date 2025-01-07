@@ -25,12 +25,12 @@ const page = async () => {
             </header>
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-20">
                 {
-                    data.length > 0 ?
+                    data?.length > 0 ?
                         data.map((book) => (
                             <BookDisplayCard key={book._id} title={book.title} price={book.price} image={book.image} id={book._id} bookDetails={book} session={session} isFavourite={true} />
                         ))
                         :
-                        <h1>No Favourites added! 😕</h1>
+                        <h3>No favourites added! 😕</h3>
                 }
             </section>
         </section>
