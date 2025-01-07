@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import daisyui from 'daisyui';
 
-module.exports = {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,3 +17,4 @@ module.exports = {
   },
   plugins: [daisyui],
 };
+export default config;
