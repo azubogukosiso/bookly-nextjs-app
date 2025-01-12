@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
       <AuthProvider>
         <CartContextProvider session={session}>
           <body
-            className={`${inter.variable} ${pacifico.variable} antialiased grid grid-rows-[auto_1fr_auto] h-screen p-5 bg-white`}
+            className={`${inter.variable} ${pacifico.variable} antialiased grid grid-rows-[auto_1fr_auto] min-h-screen p-5 bg-white`}
           >
             <ToasterContext />
             <Navbar session={session} />

@@ -3,6 +3,7 @@
 import { confirmOrder } from "@/app/(functions)/confirmOrder";
 import { orderInTransit } from "@/app/(functions)/orderInTransit";
 import { orderDelivered } from "@/app/(functions)/orderDelivered";
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 const OrderCardComponent = ({ firstName, orderId, lastName, email, shippingAddress, dateOrdered, dateDelivered, orderedBooks, totalAmount, isConfirmed, inTransit, isDelivered, session }) => {
 
@@ -18,7 +19,7 @@ const OrderCardComponent = ({ firstName, orderId, lastName, email, shippingAddre
                 <ul className="ml-5">
                     {
                         orderedBooks.map((orderedBook, index) => (
-                            <li key={orderedBook._id} className={`text-sm list-disc ${orderedBooks.length - 1 !== index && "mb-1"}`}>{orderedBook.title} - {orderedBook.qty} {parseInt(orderedBook.qty) > 1 ? "copies" : "copy"} @ ${orderedBook.price} {parseInt(orderedBook.qty) > 1 && "each"}</li>
+                            <li key={orderedBook._id} className={`text-sm list-disc ${orderedBooks.length - 1 !== index && "mb-1"}`}>{orderedBook.title} - {orderedBook.qty} {parseInt(orderedBook.qty) > 1 ? "copies" : "copy"} @ {getSymbolFromCurrency("NGN")}{orderedBook.price} {parseInt(orderedBook.qty) > 1 && "each"}</li>
                         ))
                     }
                 </ul>
@@ -72,11 +73,11 @@ const OrderCardComponent = ({ firstName, orderId, lastName, email, shippingAddre
                                         ?
                                         <></>
                                         :
-                                        <button className="p-3 ml-3 text-white bg-blue-600 rounded-lg transition-all active:scale-95" onClick={() => orderDelivered(orderId)}>Mark Order as Delivered</button>
+                                        <button className="p-3 ml-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95" onClick={() => orderDelivered(orderId)}>Mark Order as Delivered</button>
                                 :
-                                session.user.role === "admin" && <button className="p-3 ml-3 text-white bg-blue-600 rounded-lg transition-all active:scale-95" onClick={() => orderInTransit(orderId)}>Mark Order as In Transit</button>
+                                session.user.role === "admin" && <button className="p-3 ml-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95" onClick={() => orderInTransit(orderId)}>Mark Order as In Transit</button>
                             :
-                            session.user.role === "admin" && <button className="p-3 text-white bg-blue-600 rounded-lg transition-all active:scale-95" onClick={() => confirmOrder(orderId)}>Confirm Order</button>
+                            session.user.role === "admin" && <button className="p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95" onClick={() => confirmOrder(orderId)}>Confirm Order</button>
                     }
                 </>
             </div>

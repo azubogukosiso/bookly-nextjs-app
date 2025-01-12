@@ -1,8 +1,6 @@
 import toast from 'react-hot-toast';
 
 export const confirmOrder = async (orderId) => {
-    console.log("the order id: ", orderId);
-
     try {
         const res = await fetch(`/api/order/patch?orderId=${orderId}`, {
             method: "PATCH",
@@ -15,7 +13,6 @@ export const confirmOrder = async (orderId) => {
         const json = await res.json();
 
         if (res.ok) {
-            console.log("Here is the response: ", json);
             toast.success(json.data, { duration: 5000, style: { background: '#2563eb', color: '#fff', padding: '20px', fontFamily: 'Inter' } });
         }
 
