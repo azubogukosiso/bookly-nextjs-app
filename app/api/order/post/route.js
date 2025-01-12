@@ -11,13 +11,13 @@ export async function POST(req) {
         const params = {
             email,
             amount: Math.round(parseFloat(totalAmount * 100)),
-            callback_url: "http://localhost:3000",
+            callback_url: process.env.URL_ORIGIN,
             metadata: {
                 customerId,
                 firstName,
                 lastName,
                 orderedBooks,
-                "cancel_action": "http://localhost:3000",
+                "cancel_action": process.env.URL_ORIGIN,
             }
         };
 
