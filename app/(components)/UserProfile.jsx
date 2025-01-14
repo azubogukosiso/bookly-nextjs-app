@@ -46,7 +46,7 @@ const UserProfile = ({ session }) => {
                             </div> :
                                 <form className="mt-4" onSubmit={(e) => changeUserDetails(e, firstName, "firstName", session.user.id, setIsLoadingFirstName, handleSessionEdit)}>
                                     <label htmlFor="firstName">First Name:</label> <br />
-                                    <input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} id="firstName" name="firstName" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your first name here" /> <br />
+                                    <input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} id="firstName" name="firstName" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your first name here" /> <br />
                                     <button disabled={isLoadingFirstName} type="submit" className={`px-2 py-1 mt-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all ${isLoadingFirstName && "opacity-75 cursor-not-allowed"}`}>
                                         {
                                             isLoadingFirstName ?
@@ -69,7 +69,7 @@ const UserProfile = ({ session }) => {
                             </div> :
                                 <form className="mt-4" onSubmit={(e) => changeUserDetails(e, lastName, "lastName", session.user.id, setIsLoadingLastName, handleSessionEdit)}>
                                     <label htmlFor="lastName">Last Name:</label> <br />
-                                    <input type="text" value={lastName} onChange={e => setLastName(e.target.value)} id="lastName" name="lastName" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your last name here" /> <br />
+                                    <input type="text" value={lastName} onChange={e => setLastName(e.target.value)} id="lastName" name="lastName" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your last name here" /> <br />
                                     <button disabled={isLoadingLastName} type="submit" className={`px-2 py-1 mt-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all ${isLoadingLastName && "opacity-75 cursor-not-allowed"}`}>{
                                         isLoadingLastName ?
                                             <span className='flex items-center justify-center text-center'>
@@ -90,7 +90,7 @@ const UserProfile = ({ session }) => {
                             </div> :
                                 <form className="mt-4" onSubmit={(e) => changeUserDetails(e, email, "email", session.user.id, setIsLoadingEmail, handleSessionEdit)}>
                                     <label htmlFor="email">Email:</label> <br />
-                                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} id="email" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your email here" /> <br />
+                                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} id="email" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your email here" /> <br />
                                     <button disabled={isLoadingEmail} type="submit" className={`px-2 py-1 mt-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all ${isLoadingEmail && "opacity-75 cursor-not-allowed"}`}>
                                         {
                                             isLoadingEmail ?
@@ -111,7 +111,7 @@ const UserProfile = ({ session }) => {
                             (
                                 session.user.isGoogleAccount ? <form className="mt-3" onSubmit={(e) => changeUserDetails(e, shippingAddress, "shippingAddress", session.user.id, setIsLoadingShippingAddress, handleSessionEdit)}>
                                     <label htmlFor="shipping-address">Shipping Address:</label> <br />
-                                    <input type="text" value={shippingAddress ? shippingAddress : ""} onChange={e => setShippingAddress(e.target.value)} id="shipping-address" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your shipping address here" /> <br />
+                                    <input type="text" value={shippingAddress ? shippingAddress : ""} onChange={e => setShippingAddress(e.target.value)} id="shipping-address" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your shipping address here" /> <br />
                                     <button disabled={isLoadingShippingAddress} type="submit" className={`px-2 py-1 mt-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all ${isLoadingShippingAddress && "opacity-75 cursor-not-allowed"}`}>
                                         {
                                             isLoadingShippingAddress ?
@@ -127,7 +127,7 @@ const UserProfile = ({ session }) => {
                                 </form> :
                                     <form className="mt-4" onSubmit={(e) => changeUserDetails(e, shippingAddress, "shippingAddress", session.user.id, setIsLoadingShippingAddress, handleSessionEdit)}>
                                         <label htmlFor="shipping-address">Shipping Address:</label> <br />
-                                        <input type="text" value={shippingAddress ? shippingAddress : ""} onChange={e => setShippingAddress(e.target.value)} id="shipping-address" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your shipping address here" /> <br />
+                                        <input type="text" value={shippingAddress ? shippingAddress : ""} onChange={e => setShippingAddress(e.target.value)} id="shipping-address" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your shipping address here" /> <br />
                                         <button disabled={isLoadingShippingAddress} type="submit" className={`px-2 py-1 mt-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all ${isLoadingShippingAddress && "opacity-75 cursor-not-allowed"}`}>
                                             {
                                                 isLoadingShippingAddress ?
@@ -149,7 +149,7 @@ const UserProfile = ({ session }) => {
                             <form className="mt-4" onSubmit={(e) => changeUserDetails(e, { oldPassword, newPassword }, "password", session.user.id, setIsLoadingPassword, handleSessionEdit)}>
                                 <label htmlFor="old-password">Old Password:</label> <br />
                                 <div className="flex justify-between p-1 mb-2 border-2 border-gray-400 rounded-lg">
-                                    <input type={showOldPassword ? "text" : "password"} value={oldPassword} onChange={e => setOldPassword(e.target.value)} id="old-password" name="old-password" className="focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your old password here" />
+                                    <input type={showOldPassword ? "text" : "password"} value={oldPassword} onChange={e => setOldPassword(e.target.value)} id="old-password" name="old-password" className="bg-white focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your old password here" />
                                     <button type="button" className="p-1 px-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all" onClick={() => setShowOldPassword(!showOldPassword)}>
                                         {
                                             showOldPassword ?
@@ -161,7 +161,7 @@ const UserProfile = ({ session }) => {
 
                                 <label htmlFor="new-password">New Password:</label> <br />
                                 <div className="flex justify-between p-1 border-2 border-gray-400 rounded-lg">
-                                    <input type={showNewPassword ? "text" : "password"} value={newPassword} onChange={e => setNewPassword(e.target.value)} id="new-password" name="new-password" className="focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your password here" />
+                                    <input type={showNewPassword ? "text" : "password"} value={newPassword} onChange={e => setNewPassword(e.target.value)} id="new-password" name="new-password" className="bg-white focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter your password here" />
                                     <button type="button" className="p-1 px-2 text-white bg-blue-600 rounded-lg active:scale-95 transition-all" onClick={() => setShowNewPassword(!showNewPassword)}>
                                         {
                                             showNewPassword ?
