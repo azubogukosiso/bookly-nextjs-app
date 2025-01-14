@@ -26,7 +26,7 @@ const Navbar = ({ session }) => {
 					</div>
 					<ul
 						tabIndex={0}
-						className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow-lg text-black h-96 overflow-y-scroll overflow-x-hidden flex-nowrap">
+						className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 p-2 shadow-lg text-black h-96 overflow-y-scroll overflow-x-hidden flex-nowrap">
 						{
 							session?.user.role === "admin" ?
 								<>
@@ -121,7 +121,7 @@ const Navbar = ({ session }) => {
 			{
 				session ?
 					// ################## NAVBAR END ITEMS ##################
-					<div className="gap-4 navbar-end">
+					<div className="bg-white gap-4 navbar-end">
 						<ShoppingCart session={session} />
 
 						{/* ################## USER PROFILE ################## */}
