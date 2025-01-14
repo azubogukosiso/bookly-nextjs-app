@@ -9,8 +9,8 @@ const Navbar = ({ session }) => {
 		<nav className="navbar p-5 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
 			{/* ################## MENU FOR MOBILES ################## */}
 			<div className="navbar-start">
-				<div className="dropdown bg-white">
-					<div tabIndex={0} role="button" className="p-3 hover:bg-blue-800 transition-all bg-blue-600 lg:hidden">
+				<div className="dropdown">
+					<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="w-5 h-5"
