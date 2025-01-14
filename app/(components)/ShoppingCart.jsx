@@ -25,7 +25,7 @@ const ShoppingCart = ({ session }) => {
     }, 0);
 
     return (
-        <div className="bg-white">
+        <>
             {
                 // ################## SHOPPING CART ##################
                 session.user.role === "customer" &&
@@ -46,7 +46,7 @@ const ShoppingCart = ({ session }) => {
                         <span className="p-2 badge badge-xs indicator-item bg-white">{booksInCart && booksInCart.length}</span>
                     </button>
 
-                    <dialog id="cartModal" className="text-black modal">
+                    <dialog id="cartModal" className="text-black modal bg-white">
                         <div className="w-11/12 max-w-5xl modal-box">
                             <h3 className="mb-3 text-lg font-bold">{cartHeader}</h3>
 
@@ -108,7 +108,7 @@ const ShoppingCart = ({ session }) => {
                     </dialog>
                 </>
             }
-        </div>
+        </>
     )
 }
 
