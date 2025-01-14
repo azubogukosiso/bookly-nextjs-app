@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const Navbar = ({ session }) => {
 	return (
-		<nav className="navbar py-10 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
+		<nav className="navbar p-5 rounded-md bg-blue-600 text-white z-40 font-[family-name:var(--font-inter)]">
 			{/* ################## MENU FOR MOBILES ################## */}
 			<div className="navbar-start">
-				<div className="dropdown">
-					<div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+				<div className="dropdown bg-white">
+					<div tabIndex={0} role="button" className="p-3 hover:bg-blue-800 transition-all bg-blue-600 lg:hidden">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="w-5 h-5"
@@ -63,7 +63,7 @@ const Navbar = ({ session }) => {
 								:
 								<>
 									<li><Link className="py-3" href="/signin">Sign In</Link></li>
-									<li><Link className="py-3 text-blue-600 bg-white" href="/signup">Sign Up</Link></li>
+									<li><Link className="py-3 text-white bg-blue-600" href="/signup">Sign Up</Link></li>
 								</>
 						}
 					</ul>

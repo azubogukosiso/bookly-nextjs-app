@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
     return (
-        <footer className="p-10 mb-10 rounded-md bg-blue-600 font-[family-name:var(--font-inter)] text-white">
+        <footer className="p-10 rounded-md bg-blue-600 font-[family-name:var(--font-inter)] text-white">
             <div className="footer">
                 <aside>
                     <h1 className="font-[family-name:var(--font-pacifico)]">Bookly</h1>
