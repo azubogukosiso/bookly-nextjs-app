@@ -20,7 +20,7 @@ const HomepageHero = ({ verificationMsg, session }) => {
     }, [verificationMsg]);
 
     return (
-        <div className="hero min-h-screen font-[family-name:var(--font-inter)] mt-14 lg:mt-0">
+        <div className="hero min-h-screen font-[family-name:var(--font-inter)] mt-8 lg:mt-0">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="lg:w-[45%] text-center lg:text-left">
                     <h1 className="text-3xl font-bold">Hey there 😉 ...this is <span className="font-[family-name:var(--font-pacifico)]">Bookly</span></h1>
