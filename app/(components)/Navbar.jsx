@@ -121,7 +121,7 @@ const Navbar = ({ session }) => {
 			{
 				session ?
 					// ################## NAVBAR END ITEMS ##################
-					<div className="bg-white gap-4 navbar-end">
+					<div className="gap-4 navbar-end">
 						<ShoppingCart session={session} />
 
 						{/* ################## USER PROFILE ################## */}
