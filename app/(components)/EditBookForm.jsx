@@ -78,24 +78,24 @@ const EditBookForm = ({ book }) => {
         <div className="flex flex-col justify-between mb-0 lg:flex-row lg:mb-10">
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
             <label htmlFor="title">Title</label> <br />
-            <input type="text" name="title" id="title" value={title} onChange={e => setTitle(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's title here" />
+            <input type="text" name="title" id="title" value={title} onChange={e => setTitle(e.target.value)} className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's title here" />
           </div>
 
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
             <label htmlFor="author">Author</label> <br />
-            <input type="text" name="author" id="author" value={author} onChange={e => setAuthor(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's author here" />
+            <input type="text" name="author" id="author" value={author} onChange={e => setAuthor(e.target.value)} className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's author here" />
           </div>
         </div>
 
         <div className="flex flex-col justify-between mb-0 lg:flex-row lg:mb-10">
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
             <label htmlFor="price">Price</label> <br />
-            <input name="price" type="text" id="price" value={price} onChange={e => setPrice(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's price here" />
+            <input name="price" type="text" id="price" value={price} onChange={e => setPrice(e.target.value)} className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's price here" />
           </div>
 
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
             <label htmlFor="category">Category</label> <br />
-            <select name='category' onChange={e => setCategory(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={category}>
+            <select name='category' onChange={e => setCategory(e.target.value)} className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={category}>
               <option value=''>Click to select a category</option>
               <option value="Adventure">Adventure</option>
               <option value="Humour">Humour</option>
@@ -112,7 +112,7 @@ const EditBookForm = ({ book }) => {
         <div className="flex flex-col justify-between mb-0 lg:flex-row lg:mb-10">
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">
             <label htmlFor="description">Description</label> <br />
-            <textarea name="description" type="text" id="description" value={description} onChange={e => setDescription(e.target.value)} className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's description here" rows="10"></textarea>
+            <textarea name="description" type="text" id="description" value={description} onChange={e => setDescription(e.target.value)} className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" placeholder="Enter the book's description here" rows="10"></textarea>
           </div>
 
           <div className="w-full lg:w-[47%] mb-5 lg:mb-0">

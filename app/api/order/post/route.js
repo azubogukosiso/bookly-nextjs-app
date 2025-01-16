@@ -6,7 +6,7 @@ export async function POST(req) {
     try {
         const json = await req.json();
 
-        const { customerId, email, totalAmount, orderedBooks, firstName, lastName } = json;
+        const { customerId, email, totalAmount, orderedBooks, firstName, lastName, shippingAddress } = json;
 
         const params = {
             email,
@@ -16,6 +16,7 @@ export async function POST(req) {
                 customerId,
                 firstName,
                 lastName,
+                shippingAddress,
                 orderedBooks,
                 "cancel_action": process.env.URL_ORIGIN,
             }

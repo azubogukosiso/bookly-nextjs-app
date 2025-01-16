@@ -11,6 +11,7 @@ const orderSchema = new Schema(
         },
         email: String,
         totalAmount: Number,
+        shippingAddress: String,
         firstName: String,
         lastName: String,
         orderedBooks: {

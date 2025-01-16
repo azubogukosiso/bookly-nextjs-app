@@ -26,7 +26,7 @@ const BookMenu = async () => {
             </header>
             <>
                 {
-                    data.length > 0 ?
+                    data?.length > 0 ?
                         <section className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
                             {
                                 data.map((book) => (
@@ -35,7 +35,7 @@ const BookMenu = async () => {
                             }
                         </section>
                         :
-                        <p className="text-lg text-center">No books available at the moment 🙁 <br /> Please check in again some other time.</p>
+                        <p className="text-slate-700 font-bold text-center bg-slate-200 rounded-lg p-10">No books available at the moment! 🙁 <br /> Make sure you have a strong internet connection or check in again some other time.</p>
                 }
             </>
         </div>

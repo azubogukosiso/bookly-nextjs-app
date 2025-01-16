@@ -34,9 +34,9 @@ export async function POST(req) {
 
         const totalAmount = verification_data.data.amount / 100;
 
-        const { customerId, firstName, lastName, orderedBooks } = verification_data.data.metadata;
+        const { customerId, firstName, lastName, orderedBooks, shippingAddress } = verification_data.data.metadata;
 
-        const order = await Order.create({ customerId, email, totalAmount, firstName, lastName, orderedBooks });
+        const order = await Order.create({ customerId, email, totalAmount, firstName, lastName, orderedBooks, shippingAddress });
 
         orderedBooks.map(async (book) => {
             const bookToUpdate = await Book.findByIdAndUpdate(book._id, { $inc: { purchaseCount: 1 } }, { new: true });

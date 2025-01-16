@@ -62,7 +62,7 @@ const page = async ({ searchParams }) => {
             <h1 className="mt-20 mb-10">{header}</h1>
             <section className="grid w-full grid-cols-1 gap-6 mb-20 lg:grid-cols-2">
                 {
-                    books.data.length > 0 ?
+                    books.data?.length > 0 ?
                         books.data.map((book) => (
                             <BookDisplayCard key={book._id} title={book.title} price={book.price} image={book.image} id={book._id} bookDetails={book} session={session} />
                         ))

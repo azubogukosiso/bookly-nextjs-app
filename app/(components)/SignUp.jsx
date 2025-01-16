@@ -50,28 +50,28 @@ const SignUp = () => {
                 <div className="flex justify-between">
                     <div className="w-[47%]">
                         <label htmlFor="firstName">First Name</label> <br />
-                        <input type="text" name="firstName" id="firstName" placeholder="Enter your first name here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.firstName}
+                        <input type="text" name="firstName" id="firstName" placeholder="Enter your first name here" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.firstName}
                             onChange={e => setData({ ...data, firstName: e.target.value })} required={true} />
                         {firstNameErrMsg && <p className="mt-2 text-red-500">{firstNameErrMsg}</p>}
                     </div>
 
                     <div className="w-[47%]">
                         <label htmlFor="lastName">Last Name</label> <br />
-                        <input type="text" name="lastName" id="lastName" placeholder="Enter your last name here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.lastName} onChange={e => setData({ ...data, lastName: e.target.value })} required={true} />
+                        <input type="text" name="lastName" id="lastName" placeholder="Enter your last name here" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.lastName} onChange={e => setData({ ...data, lastName: e.target.value })} required={true} />
                         {lastNameErrMsg && <p className="mt-2 text-red-500">{lastNameErrMsg}</p>}
                     </div>
                 </div>
 
                 <div className="mt-10">
                     <label htmlFor="email">Email</label> <br />
-                    <input type="email" name="email" id="email" placeholder="Enter your email here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />
+                    <input type="email" name="email" id="email" placeholder="Enter your email here" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />
                     {emailErrMsg && <p className="mt-2 text-red-500">{emailErrMsg}</p>}
                 </div>
 
                 <div className="mt-10">
                     <label htmlFor="password">Password</label> <br />
                     <div className="flex justify-between p-1 border-2 border-gray-400 rounded-lg">
-                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter a strong password here" className="focus:!outline-none p-2 rounded-lg w-full" value={data.password} onChange={e => setData({ ...data, password: e.target.value })} required={true} />
+                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter a strong password here" className="bg-white focus:!outline-none p-2 rounded-lg w-full" value={data.password} onChange={e => setData({ ...data, password: e.target.value })} required={true} />
                         <button type="button" className="text-white bg-blue-600 btn" onClick={() => setShowPassword(!showPassword)}>
                             {
                                 showPassword ?
@@ -85,7 +85,7 @@ const SignUp = () => {
 
                 <div className="mt-10">
                     <label htmlFor="shipping-address">Shipping Address (skip if you haven&apos;t made up your mind yet)</label> <br />
-                    <input type="text" name="shipping-address" id="shipping-address" placeholder="Enter your shipping address" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.shippingAddress} onChange={e => setData({ ...data, shippingAddress: e.target.value })} />
+                    <input type="text" name="shipping-address" id="shipping-address" placeholder="Enter your shipping address" className="bg-white border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.shippingAddress} onChange={e => setData({ ...data, shippingAddress: e.target.value })} />
                 </div>
 
                 <button type="submit" className={`p-3 rounded-lg mt-10 text-white bg-blue-600 transition-all active:scale-90 ${isLoading && "opacity-75 cursor-not-allowed"}`} disabled={isLoading}>{isLoading ? <span className='flex items-center justify-center text-center'>

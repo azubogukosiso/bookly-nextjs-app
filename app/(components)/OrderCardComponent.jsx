@@ -24,7 +24,7 @@ const OrderCardComponent = ({ firstName, orderId, lastName, email, shippingAddre
                     }
                 </ul>
             </div>
-            <p className="mt-3"><span className="font-bold">Total Amount</span> <br />${totalAmount}</p>
+            <p className="mt-3"><span className="font-bold">Total Amount</span> <br />{getSymbolFromCurrency("NGN")}{totalAmount}</p>
             <div className="p-3 mt-3 bg-blue-200 border-l-4 border-blue-600 rounded-md">
                 {
                     isConfirmed ?

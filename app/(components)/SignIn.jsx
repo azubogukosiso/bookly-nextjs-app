@@ -36,14 +36,14 @@ const SignIn = () => {
             <form className="flex flex-col justify-center w-full mt-10 lg:ml-10 lg:mt-0 lg:w-3/5" onSubmit={(e) => signInUser(e, { data, setEmailErrMsg, setPasswordErrMsg, setIsLoading })}>
                 <div>
                     <label htmlFor="email">Email</label> <br />
-                    <input type="email" name="email" id="email" placeholder="Enter your email here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />
+                    <input type="email" name="email" id="email" placeholder="Enter your email here" className="border-2 border-gray-400 focus:!outline-none p-2 rounded-lg w-full bg-white" value={data.email} onChange={e => setData({ ...data, email: e.target.value })} required={true} />
                     {emailErrMsg && <p className="mt-2 text-red-500">{emailErrMsg}</p>}
                 </div>
 
                 <div className="mt-10">
                     <label htmlFor="password">Password</label> <br />
                     <div className="flex justify-between p-1 border-2 border-gray-400 rounded-lg">
-                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter a strong password here" className="focus:!outline-none p-2 rounded-lg w-full" value={data.password} onChange={e => setData({ ...data, password: e.target.value })} required={true} />
+                        <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter a strong password here" className="focus:!outline-none p-2 rounded-lg w-full bg-white" value={data.password} onChange={e => setData({ ...data, password: e.target.value })} required={true} />
                         <button type="button" className="text-white bg-blue-600 btn" onClick={() => setShowPassword(!showPassword)}>
                             {
                                 showPassword ?
@@ -66,7 +66,7 @@ const SignIn = () => {
 
                 <p className="my-5 text-center">OR</p>
 
-                <button disabled={isGoogleLoading} className={`btn bg-slate-200 w-full active:scale-95 transition-all ${isGoogleLoading && "opacity-75 cursor-not-allowed"}`} onClick={googleLogin}>
+                <button disabled={isGoogleLoading} className={`p-3 rounded-lg text-black bg-slate-200 w-full active:scale-90 transition-all ${isGoogleLoading && "opacity-75 cursor-not-allowed"}`} onClick={googleLogin}>
                     {
                         isGoogleLoading ?
                             <span className='flex items-center justify-center py-2 text-center'>

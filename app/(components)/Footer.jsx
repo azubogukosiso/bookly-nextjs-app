@@ -28,7 +28,7 @@ const Footer = () => {
                 </nav>
             </div>
             <div className="flex justify-center items-center p-3 mt-10 bg-blue-700 border-l-4 border-white rounded-md font-[family-name:var(--font-inter)] text-sm text-white">
-                <p className="mr-3">You can reach the developer on the following handles for more info and collaborations</p>
+                <p className="mr-3">A project of <span className="underline">Kosisochukwu Azubogu</span>. Reach out for more info and collaborations</p>
 
                 <div className="flex">
                     {/* ########## LINKEDIN ICON ########## */}

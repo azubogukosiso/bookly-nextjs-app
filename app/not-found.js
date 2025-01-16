@@ -9,11 +9,11 @@ export default async function NotFound() {
     const session = await getServerSession(authOptions);
 
     return (
-        <section className="font-[family-name:var(--font-inter)] m-20 flex items-center justify-center">
+        <section className="font-[family-name:var(--font-inter)] m-20 flex-col lg:flex items-center justify-center text-center">
             <figure className="relative overflow-hidden">
-                <Image src={NotFoundSVG} className="relative w-full h-3/4" alt="A pair of hands popping out of hole with a '404 PAGE NOT FOUND' sign" style={{ objectFit: "cover" }} />
+                <Image src={NotFoundSVG} className="relative w-full" alt="A pair of hands popping out of hole with a '404 PAGE NOT FOUND' sign" style={{ objectFit: "cover" }} />
             </figure>
-            <div className="ml-10">
+            <div>
                 <p className="text-lg">Oops! Looks like the page you&apos;re looking for does not exist.</p>
                 <div className="mt-3">
                     <Link href={`${session?.user.role === "admin" ? "/admin" : "/"}`} className="inline-block p-3 text-white transition-all bg-blue-600 rounded-lg active:scale-95">Go back home</Link>
